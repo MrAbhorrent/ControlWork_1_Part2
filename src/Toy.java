@@ -2,12 +2,22 @@ public class Toy {
 
     private int id;
     private String name;
+    private int quantity;
     private float dropRate;
 
-    public Toy(int id, String name, float dropRate) {
+    public Toy(int id, String name, int quantity, float dropRate) {
         this.id = id;
         setName(name);
+        setQuantity(quantity);
         setDropRate(dropRate);
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public int getId() {
