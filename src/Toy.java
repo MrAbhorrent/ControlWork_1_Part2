@@ -3,10 +3,17 @@ public class Toy {
     private int id;
     private String name;
     private int quantity;
-    private float dropRate;
+    private int dropRate;
 
-    public Toy(int id, String name, int quantity, float dropRate) {
-        this.id = id;
+    /**
+     *
+     * @param id - iD игрушки
+     * @param name - Наименование игрушки
+     * @param quantity - Количество
+     * @param dropRate - Частота выпадения игрушки (вес в % от 100)
+     */
+    public Toy(int id, String name, int quantity, int dropRate) {
+        setId(id);
         setName(name);
         setQuantity(quantity);
         setDropRate(dropRate);
@@ -18,6 +25,14 @@ public class Toy {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public boolean decreaseQuantity() {
+        if ( this.quantity > 0 ) {
+            this.quantity--;
+            return true;
+        }
+        return false;
     }
 
     public int getId() {
@@ -33,14 +48,18 @@ public class Toy {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (!name.isEmpty()) {
+            this.name = name;
+            return;
+        }
+        this.name = "Игрушка";
     }
 
-    public float getDropRate() {
+    public int getDropRate() {
         return dropRate;
     }
 
-    public void setDropRate(float dropRate) {
+    public void setDropRate(int dropRate) {
         this.dropRate = dropRate;
     }
 
